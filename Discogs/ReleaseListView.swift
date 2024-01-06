@@ -26,7 +26,6 @@ final class ReleaseListViewModel {
         let discogsContent = try JSONDecoder().decode(DiscogsContent.self, from: data)
         releases = discogsContent.releases
     }
-
 }
 
 struct ReleaseListView: View {
@@ -36,17 +35,7 @@ struct ReleaseListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.releases ?? []) { release in
-                    
-                    NavigationLink {
-                        ReleaseDetailView(release: release)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(release.artist ?? "No artist name")
-                            Text(release.title ?? "No title")
-                        }
-                    }
-                }
+                releaseListSubView
             }
             .navigationTitle("Discogs Releases")
         }
@@ -56,6 +45,19 @@ struct ReleaseListView: View {
                 try await viewModel.loadDiscogs()
             } catch {
                 
+            }
+        }
+    }
+    
+    private var releaseListSubView: some View {
+        ForEach(viewModel.releases ?? []) { release in
+            NavigationLink {
+                ReleaseDetailView(release: release)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(release.artist ?? "No artist name")
+                    Text(release.title ?? "No title")
+                }
             }
         }
     }
