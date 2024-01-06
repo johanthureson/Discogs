@@ -19,8 +19,10 @@ final class ReleaseListViewModel {
     }
     
     func loadDiscogs() async throws {
-        let url = URL(string: "https://api.discogs.com/artists/1/releases?page=1&per_page=75")
-        let request = URLRequest(url: url!)
+        guard let url = URL(string: "https://api.discogs.com/artists/1/releases?page=1&per_page=75") else {
+            return
+        }
+        let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         let discogsContent = try JSONDecoder().decode(DiscogsContent.self, from: data)
         releases = discogsContent.releases
