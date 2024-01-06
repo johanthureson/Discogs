@@ -10,12 +10,11 @@ import SwiftUI
 @Observable
 final class ReleaseListViewModel {
     
-    private (set) var title = "Hello, world!"
+    private (set) var title = "Discogs Releases"
     
     private (set) var releases: [Releases]?
 
-    init(title: String = "Hello, world!", releases: [Releases]? = nil) {
-        self.title = title
+    init(releases: [Releases]? = nil) {
         self.releases = releases
     }
     
@@ -37,7 +36,7 @@ struct ReleaseListView: View {
             List {
                 releaseListSubView
             }
-            .navigationTitle("Discogs Releases")
+            .navigationTitle(viewModel.title)
         }
         .padding()
         .task {
