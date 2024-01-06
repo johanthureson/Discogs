@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+@Observable
+final class ArtistListViewModel {
+    private (set) var title = "Hello, world!"
+}
+
 struct ArtistListView: View {
+    
+    @State var viewModel = ArtistListViewModel()
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(viewModel.title)
         }
         .padding()
     }
