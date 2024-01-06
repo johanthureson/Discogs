@@ -55,10 +55,7 @@ struct ReleaseListView: View {
             NavigationLink {
                 ReleaseDetailView(release: release)
             } label: {
-                VStack(alignment: .leading) {
-                    Text(release.artist ?? "No artist name")
-                    Text(release.title ?? "No title")
-                }
+                ReleaseCellView(release: release)
             }
         }
     }
