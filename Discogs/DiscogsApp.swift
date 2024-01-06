@@ -11,7 +11,7 @@ import SwiftUI
 struct DiscogsApp: App {
     var body: some Scene {
         WindowGroup {
-            ArtistListView()
+            ReleaseListView()
         }
     }
 }
