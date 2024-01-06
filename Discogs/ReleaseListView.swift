@@ -34,15 +34,21 @@ struct ReleaseListView: View {
     @State var viewModel = ReleaseListViewModel()
 
     var body: some View {
-        VStack {
+        NavigationStack {
             List {
                 ForEach(viewModel.releases ?? []) { release in
-                    VStack(alignment: .leading) {
-                        Text(release.artist ?? "No artist name")
-                        Text(release.title ?? "No title")
+                    
+                    NavigationLink {
+                        ReleaseDetailView(release: release)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(release.artist ?? "No artist name")
+                            Text(release.title ?? "No title")
+                        }
                     }
                 }
             }
+            .navigationTitle("Discogs Releases")
         }
         .padding()
         .task {
@@ -53,6 +59,7 @@ struct ReleaseListView: View {
             }
         }
     }
+
 }
 
 #Preview {

@@ -18,6 +18,7 @@
 		4DAAF5F42B496779002E45BB /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5EE2B496779002E45BB /* Stats.swift */; };
 		4DAAF5F62B496779002E45BB /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5F02B496779002E45BB /* Community.swift */; };
 		4DAAF5F72B496779002E45BB /* DiscogsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5F12B496779002E45BB /* DiscogsContent.swift */; };
+		4DAAF5F92B49BC1F002E45BB /* ReleaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4DAAF5EE2B496779002E45BB /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		4DAAF5F02B496779002E45BB /* Community.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		4DAAF5F12B496779002E45BB /* DiscogsContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscogsContent.swift; sourceTree = "<group>"; };
+		4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				4DAAF5EB2B496769002E45BB /* CodableModels */,
 				4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */,
 				4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */,
+				4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */,
 				4DAAF5C52B49649C002E45BB /* Assets.xcassets */,
 				4DAAF5C72B49649C002E45BB /* Preview Content */,
 			);
@@ -280,6 +283,7 @@
 				4DAAF5F42B496779002E45BB /* Stats.swift in Sources */,
 				4DAAF5F32B496779002E45BB /* Releases.swift in Sources */,
 				4DAAF5C42B49649B002E45BB /* ReleaseListView.swift in Sources */,
+				4DAAF5F92B49BC1F002E45BB /* ReleaseDetailView.swift in Sources */,
 				4DAAF5F62B496779002E45BB /* Community.swift in Sources */,
 				4DAAF5F72B496779002E45BB /* DiscogsContent.swift in Sources */,
 				4DAAF5C22B49649B002E45BB /* DiscogsApp.swift in Sources */,
