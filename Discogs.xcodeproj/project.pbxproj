@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0CFB9E2B4B2D6C006B32EE /* Evaluate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */; };
 		4D4FFE9E2B4B21330091F6AF /* ReleaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFE9D2B4B21330091F6AF /* ReleaseAPI.swift */; };
 		4D4FFEA02B4B21510091F6AF /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFE9F2B4B21510091F6AF /* URLSessionProtocol.swift */; };
 		4D4FFEA32B4B23C60091F6AF /* ReleaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate.swift; sourceTree = "<group>"; };
 		4D4FFE9D2B4B21330091F6AF /* ReleaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseAPI.swift; sourceTree = "<group>"; };
 		4D4FFE9F2B4B21510091F6AF /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseRepository.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D0CFB9C2B4B2D5A006B32EE /* TestUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */,
+			);
+			path = TestUtilities;
+			sourceTree = "<group>";
+		};
 		4D4FFE9C2B4B21260091F6AF /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		4DAAF5D12B49649C002E45BB /* DiscogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				4D0CFB9C2B4B2D5A006B32EE /* TestUtilities */,
 				4DAAF5D22B49649C002E45BB /* DiscogsTests.swift */,
 			);
 			path = DiscogsTests;
@@ -294,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0CFB9E2B4B2D6C006B32EE /* Evaluate.swift in Sources */,
 				4DAAF5D32B49649C002E45BB /* DiscogsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
