@@ -9,9 +9,9 @@ import Foundation
 @testable import Discogs
 
 public final class MockReleaseAPI: ReleaseAPI {
-    
+
     public init() { }
-    
+
     var stubGetReleasesResponse: Result<[Releases], Error>?
     private(set) var getReleasesCallCount = 0
     public func getReleases() async throws -> [Releases] {

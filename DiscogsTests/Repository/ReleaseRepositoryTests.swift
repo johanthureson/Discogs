@@ -10,23 +10,23 @@ import XCTest
 @testable import Discogs
 
 final class ReleaseRepositoryTests: XCTestCase {
-    
+
     var sut: ReleaseRepository!
     var mockReleaseAPI: MockReleaseAPI!
     var mockReleaseDB: MockReleaseDB!
     var cancel: AnyCancellable?
-    
+
     private enum TestRepositoryError: Error, Equatable {
         case testError
     }
-    
+
     override func setUp() {
         super.setUp()
         mockReleaseAPI = MockReleaseAPI()
         mockReleaseDB = MockReleaseDB()
         sut = ReleaseRepositoryImpl(api: mockReleaseAPI, db: mockReleaseDB)
     }
-    
+
     override func tearDown() {
         cancel?.cancel()
         cancel = nil
@@ -35,9 +35,9 @@ final class ReleaseRepositoryTests: XCTestCase {
         mockReleaseDB = nil
         super.tearDown()
     }
-    
+
     // MARK: - DataAccessStrategy.upToDateWithFallback
-    
+
     func test_loadReleases_upToDateWithFallback_callsAPI() async {
         // Given
         mockReleaseAPI.stubGetReleasesResponse = .success([])
@@ -48,7 +48,7 @@ final class ReleaseRepositoryTests: XCTestCase {
         XCTAssertEqual(mockReleaseAPI.getReleasesCallCount, 1)
         XCTAssertEqual(mockReleaseDB.saveReleasesCallCount, 1)
     }
-    
+
     func test_loadReleases_success_sendsReleasesToPublisher() async {
         // Given
         let expectedReleases = [Releases.sample()]
@@ -63,7 +63,7 @@ final class ReleaseRepositoryTests: XCTestCase {
             XCTFail(#function)
         }
     }
-    
+
     func test_loadReleases_failure_sendsErrorToPublisher() async {
         // Given
         let testError = TestRepositoryError.testError
@@ -78,12 +78,12 @@ final class ReleaseRepositoryTests: XCTestCase {
             XCTFail(#function)
         }
     }
-    
+
     // MARK: - Helpers -
-    
+
     private func getLoadReleasesTestResult() async -> LoadingState<[Releases]>? {
         var testResult: LoadingState<[Releases]>?
-        
+
         let exp = expectation(description: #function)
         cancel = sut.releasesPublisher
             .dropFirst(2)
@@ -91,10 +91,10 @@ final class ReleaseRepositoryTests: XCTestCase {
                 testResult = $0
                 exp.fulfill()
             })
-        
+
         await sut.loadReleases()
         await fulfillment(of: [exp], timeout: 1)
-        
+
         return testResult
     }
 }

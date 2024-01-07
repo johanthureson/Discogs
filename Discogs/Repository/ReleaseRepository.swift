@@ -21,12 +21,12 @@ public protocol ReleaseRepository {
 }
 
 public final class ReleaseRepositoryImpl: ReleaseRepository {
-    
+
     public private(set) var releasesPublisher = CurrentValueSubject<LoadingState<[Releases]>, Never>(.idle)
-    
+
     private let api: ReleaseAPI
     private let db: ReleaseDB?
-    
+
     public init(
         api: ReleaseAPI = ReleaseAPIImpl(),
         db: ReleaseDB? = try? ReleaseDBImpl()
@@ -34,7 +34,7 @@ public final class ReleaseRepositoryImpl: ReleaseRepository {
         self.api = api
         self.db = db
     }
-    
+
     public func loadReleases() async {
         releasesPublisher.send(.loading)
         do {
@@ -43,7 +43,7 @@ public final class ReleaseRepositoryImpl: ReleaseRepository {
             releasesPublisher.send(.failure(error))
         }
     }
-    
+
     private func upToDateWithFallback() async throws {
         do {
             let releases = try await api.getReleases()
@@ -57,9 +57,9 @@ public final class ReleaseRepositoryImpl: ReleaseRepository {
             }
         }
     }
-    
+
     // MARK: - Testing Helpers
-    
+
     private func createRelease(id: Int? = 999, artist: String? = "Depeche Mode", title: String? = "Speak & Spell") -> Releases {
         Releases(id: id,
                  status: "",

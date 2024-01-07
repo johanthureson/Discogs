@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 
 public extension Optional {
-    
+
     /// Evaluate stubs in mock implementations of dependencies
     ///
     /// Stubs should be of type `Result<T, Error>?`.
@@ -25,7 +25,7 @@ public extension Optional {
         switch self {
         case .some(let result):
             return try result.get()
-            
+
         case .none:
             XCTFail("Stub not set", file: file, line: line)
             throw NSError(domain: "Stub not set error", code: 0)

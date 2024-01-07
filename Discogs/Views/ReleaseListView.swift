@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ReleaseListView: View {
-    
+
     @State private var viewModel = ReleaseListViewModel()
-    
+
     var body: some View {
         NavigationStack {
             releaseListSubView
@@ -21,7 +21,7 @@ struct ReleaseListView: View {
         .alert(isPresented: $viewModel.showAlert) { errorAlert }
         .task { await viewModel.loadReleases() }
     }
-    
+
     private var releaseListSubView: some View {
         List {
             ForEach(viewModel.releases) { release in
@@ -34,14 +34,13 @@ struct ReleaseListView: View {
         }
     }
 
-
     @ViewBuilder
     private var loadingIndicator: some View {
         if viewModel.isLoading {
             ProgressView()
         }
     }
-    
+
     private var errorAlert: Alert {
         Alert(
             title: Text("Error"),

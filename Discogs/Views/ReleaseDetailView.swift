@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ReleaseDetailView: View {
-    
+
     let release: Releases
-    
+
     var body: some View {
         List {
             artist
@@ -24,7 +24,7 @@ struct ReleaseDetailView: View {
         }
         .navigationTitle(release.title ?? "")
     }
-    
+
     @ViewBuilder
     private var artist: some View {
         if let artistName = release.artist {
@@ -34,7 +34,7 @@ struct ReleaseDetailView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var title: some View {
         if let titleName = release.title {
@@ -44,7 +44,7 @@ struct ReleaseDetailView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var status: some View {
         if let statusString = release.status {
@@ -54,7 +54,7 @@ struct ReleaseDetailView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private var type: some View {
         if let typeString = release.type {
@@ -100,5 +100,5 @@ struct ReleaseDetailView: View {
             }
         }
     }
-    
+
 }

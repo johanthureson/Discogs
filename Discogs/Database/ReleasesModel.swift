@@ -9,19 +9,19 @@ import SwiftData
 
 @Model
 final class ReleasesModel {
-    
+
     @Attribute(.unique) var id: Int?
-    let status : String?
-    let type : String?
-    let format : String?
-    let label : String?
-    let title : String?
-    let resource_url : String?
-    let role : String?
-    let artist : String?
-    let year : Int?
-    let thumb : String?
-    
+    let status: String?
+    let type: String?
+    let format: String?
+    let label: String?
+    let title: String?
+    let resource_url: String?
+    let role: String?
+    let artist: String?
+    let year: Int?
+    let thumb: String?
+
     var release: Releases {
         Releases(id: id,
                  status: status,
@@ -36,7 +36,7 @@ final class ReleasesModel {
                  thumb: thumb
         )
     }
-    
+
     init(release: Releases) {
         self.id = release.id
         self.status = release.status

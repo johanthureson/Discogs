@@ -1,8 +1,8 @@
 import Foundation
 
-struct Community : Codable {
-	let in_wantlist : Int?
-	let in_collection : Int?
+struct Community: Codable {
+	let in_wantlist: Int?
+	let in_collection: Int?
 
 	enum CodingKeys: String, CodingKey {
 		case in_wantlist = "in_wantlist"

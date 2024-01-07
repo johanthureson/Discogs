@@ -9,9 +9,9 @@ import Foundation
 @testable import Discogs
 
 public final class MockURLSession: URLSessionProtocol {
-    
+
     public init() { }
-    
+
     var stubDataResponse: Result<(Data, URLResponse), Error>?
     var capturedURL: URL?
     public func data(from url: URL) async throws -> (Data, URLResponse) {

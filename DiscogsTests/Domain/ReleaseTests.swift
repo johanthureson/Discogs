@@ -9,9 +9,9 @@ import XCTest
 @testable import Discogs
 
 final class ReleaseTests: XCTestCase {
-    
+
     let decoder = JSONDecoder()
-    
+
     func test_decodeJSON_parsesInformation() {
         // Given
         guard let jsonData = getReleaseJSON().data(using: .utf8),
@@ -27,8 +27,7 @@ final class ReleaseTests: XCTestCase {
         XCTAssertEqual(release.title, "Skargard")
         XCTAssertEqual(release.year, 2015)
     }
-    
-    
+
     func test_decodeJSON_withInvalidDataFormat_throwsError() {
         do {
             // Given
@@ -37,14 +36,14 @@ final class ReleaseTests: XCTestCase {
             _ = try decoder.decode(DiscogsContent.self, from: invalidData!)
             // Then
             XCTFail("Expected to fail")
-            
+
         } catch {
             // Then
             XCTAssertEqual(error.localizedDescription,
                            "The data couldn’t be read because it isn’t in the correct format.")
         }
     }
-    
+
     func test_equality_checksForMatchingID() {
         // Given
         // When
@@ -56,7 +55,7 @@ final class ReleaseTests: XCTestCase {
         XCTAssertTrue(releaseA != releaseC)
         XCTAssertTrue(releaseB == releaseC)
     }
-    
+
     func test_optionalValues() {
         // Given
         // When
@@ -65,7 +64,7 @@ final class ReleaseTests: XCTestCase {
         XCTAssertNil(release.resource_url)
         XCTAssertNil(release.role)
     }
-    
+
     func test_sample_createsSampleRelease() {
         // Given
         // When
@@ -76,7 +75,7 @@ final class ReleaseTests: XCTestCase {
         XCTAssertEqual(release.title, "Speak & Spell")
         XCTAssertEqual(release.year, 1981)
     }
-    
+
     private func createRelease(id: Int, title: String, resource_url: String? = "", role: String? = "") -> Releases {
         Releases(id: id,
                  status: "",
@@ -90,9 +89,9 @@ final class ReleaseTests: XCTestCase {
                  year: 1981,
                  thumb: ""
         )
-        
+
     }
-    
+
     private func getReleaseJSON() -> String {
 """
 {

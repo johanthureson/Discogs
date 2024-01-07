@@ -1,7 +1,7 @@
 import Foundation
 
-struct Stats : Codable {
-	let community : Community?
+struct Stats: Codable {
+	let community: Community?
 
 	enum CodingKeys: String, CodingKey {
 		case community = "community"

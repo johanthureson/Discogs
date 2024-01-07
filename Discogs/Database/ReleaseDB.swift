@@ -14,13 +14,13 @@ public protocol ReleaseDB {
 }
 
 public final class ReleaseDBImpl: ReleaseDB {
-    
+
     private let container: ModelContainer
-    
+
     public init() throws {
         container = try ModelContainer(for: ReleasesModel.self)
     }
-    
+
     @MainActor
     public func getReleases() async throws -> [Releases] {
         let context = container.mainContext
@@ -30,7 +30,7 @@ public final class ReleaseDBImpl: ReleaseDB {
         let releaseModels = try context.fetch(fetchDescriptor)
         return releaseModels.map { $0.release }
     }
-    
+
     @MainActor
     public func save(releases: [Releases]) throws {
         let context = container.mainContext

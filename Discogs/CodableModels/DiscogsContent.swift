@@ -1,8 +1,8 @@
 import Foundation
 
-public struct DiscogsContent : Codable {
-    
-    public let releases : [Releases]?
+public struct DiscogsContent: Codable {
+
+    public let releases: [Releases]?
 
     enum CodingKeys: String, CodingKey {
         case releases = "releases"
