@@ -12,18 +12,16 @@ struct ReleaseDetailView: View {
     let release: Releases
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                artist
-                title
-                status
-                type
-                format
-                label
-                role
-                year
-                Spacer()
-            }
+        List {
+            artist
+            title
+            status
+            type
+            format
+            label
+            role
+            year
+            Spacer()
         }
     }
     
