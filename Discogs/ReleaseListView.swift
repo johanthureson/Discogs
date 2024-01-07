@@ -31,7 +31,7 @@ final class ReleaseListViewModel {
 
 struct ReleaseListView: View {
     
-    @State var viewModel = ReleaseListViewModel()
+    @State private var viewModel = ReleaseListViewModel()
 
     var body: some View {
         NavigationStack {
