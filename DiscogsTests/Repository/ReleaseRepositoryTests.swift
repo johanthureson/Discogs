@@ -52,13 +52,14 @@ final class ReleaseRepositoryTests: XCTestCase {
     func test_loadReleases_success_sendsReleasesToPublisher() async {
         // Given
         let expectedReleases = [Releases.sample()]
-        // When
         mockReleaseAPI.stubGetReleasesResponse = .success(expectedReleases)
         mockReleaseDB.stubSaveReleasesResponse = .success(())
-        // Then
+        // When
         if case .success(let releases) = await getLoadReleasesTestResult() {
+            // Then
             XCTAssertEqual(releases, expectedReleases)
         } else {
+            // Then
             XCTFail(#function)
         }
     }
@@ -66,9 +67,9 @@ final class ReleaseRepositoryTests: XCTestCase {
     func test_loadReleases_failure_sendsErrorToPublisher() async {
         // Given
         let testError = TestRepositoryError.testError
-        // When
         mockReleaseAPI.stubGetReleasesResponse = .failure(testError)
         mockReleaseDB.stubGetReleasesResponse = .failure(testError)
+        // When
         if case .failure(let error) = await getLoadReleasesTestResult() {
             // Then
             XCTAssertEqual(error as? TestRepositoryError, testError)
