@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4D0CFB9E2B4B2D6C006B32EE /* Evaluate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */; };
+		4D0CFBA62B4B2EB6006B32EE /* ReleaseListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBA52B4B2EB6006B32EE /* ReleaseListViewModelTests.swift */; };
+		4D0CFBA82B4B307A006B32EE /* ReleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBA72B4B307A006B32EE /* ReleaseTests.swift */; };
+		4D0CFBAA2B4B3092006B32EE /* MockReleaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBA92B4B3092006B32EE /* MockReleaseRepository.swift */; };
+		4D0CFBAC2B4B309F006B32EE /* ReleaseRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBAB2B4B309F006B32EE /* ReleaseRepositoryTests.swift */; };
+		4D0CFBAE2B4B30AF006B32EE /* MockReleaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBAD2B4B30AF006B32EE /* MockReleaseAPI.swift */; };
+		4D0CFBB02B4B30BD006B32EE /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBAF2B4B30BD006B32EE /* MockURLSession.swift */; };
+		4D0CFBB22B4B30CC006B32EE /* ReleaseAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBB12B4B30CC006B32EE /* ReleaseAPITests.swift */; };
+		4D0CFBB42B4B30DF006B32EE /* MockReleaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CFBB32B4B30DF006B32EE /* MockReleaseDB.swift */; };
 		4D4FFE9E2B4B21330091F6AF /* ReleaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFE9D2B4B21330091F6AF /* ReleaseAPI.swift */; };
 		4D4FFEA02B4B21510091F6AF /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFE9F2B4B21510091F6AF /* URLSessionProtocol.swift */; };
 		4D4FFEA32B4B23C60091F6AF /* ReleaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */; };
@@ -38,6 +46,14 @@
 
 /* Begin PBXFileReference section */
 		4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate.swift; sourceTree = "<group>"; };
+		4D0CFBA52B4B2EB6006B32EE /* ReleaseListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseListViewModelTests.swift; sourceTree = "<group>"; };
+		4D0CFBA72B4B307A006B32EE /* ReleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTests.swift; sourceTree = "<group>"; };
+		4D0CFBA92B4B3092006B32EE /* MockReleaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReleaseRepository.swift; sourceTree = "<group>"; };
+		4D0CFBAB2B4B309F006B32EE /* ReleaseRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseRepositoryTests.swift; sourceTree = "<group>"; };
+		4D0CFBAD2B4B30AF006B32EE /* MockReleaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReleaseAPI.swift; sourceTree = "<group>"; };
+		4D0CFBAF2B4B30BD006B32EE /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		4D0CFBB12B4B30CC006B32EE /* ReleaseAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseAPITests.swift; sourceTree = "<group>"; };
+		4D0CFBB32B4B30DF006B32EE /* MockReleaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReleaseDB.swift; sourceTree = "<group>"; };
 		4D4FFE9D2B4B21330091F6AF /* ReleaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseAPI.swift; sourceTree = "<group>"; };
 		4D4FFE9F2B4B21510091F6AF /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseRepository.swift; sourceTree = "<group>"; };
@@ -82,6 +98,49 @@
 				4D0CFB9D2B4B2D6C006B32EE /* Evaluate.swift */,
 			);
 			path = TestUtilities;
+			sourceTree = "<group>";
+		};
+		4D0CFB9F2B4B2E68006B32EE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFBB32B4B30DF006B32EE /* MockReleaseDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		4D0CFBA02B4B2E6F006B32EE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFBAD2B4B30AF006B32EE /* MockReleaseAPI.swift */,
+				4D0CFBAF2B4B30BD006B32EE /* MockURLSession.swift */,
+				4D0CFBB12B4B30CC006B32EE /* ReleaseAPITests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4D0CFBA12B4B2E76006B32EE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFBA92B4B3092006B32EE /* MockReleaseRepository.swift */,
+				4D0CFBAB2B4B309F006B32EE /* ReleaseRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4D0CFBA22B4B2E8B006B32EE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFBA72B4B307A006B32EE /* ReleaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4D0CFBA32B4B2E98006B32EE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D0CFBA52B4B2EB6006B32EE /* ReleaseListViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4D4FFE9C2B4B21260091F6AF /* Network */ = {
@@ -166,6 +225,11 @@
 			isa = PBXGroup;
 			children = (
 				4D0CFB9C2B4B2D5A006B32EE /* TestUtilities */,
+				4D0CFBA32B4B2E98006B32EE /* ViewModels */,
+				4D0CFBA22B4B2E8B006B32EE /* Domain */,
+				4D0CFBA12B4B2E76006B32EE /* Repository */,
+				4D0CFBA02B4B2E6F006B32EE /* Network */,
+				4D0CFB9F2B4B2E68006B32EE /* Database */,
 			);
 			path = DiscogsTests;
 			sourceTree = "<group>";
@@ -302,7 +366,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0CFBA62B4B2EB6006B32EE /* ReleaseListViewModelTests.swift in Sources */,
+				4D0CFBB42B4B30DF006B32EE /* MockReleaseDB.swift in Sources */,
+				4D0CFBAA2B4B3092006B32EE /* MockReleaseRepository.swift in Sources */,
+				4D0CFBAC2B4B309F006B32EE /* ReleaseRepositoryTests.swift in Sources */,
 				4D0CFB9E2B4B2D6C006B32EE /* Evaluate.swift in Sources */,
+				4D0CFBB02B4B30BD006B32EE /* MockURLSession.swift in Sources */,
+				4D0CFBAE2B4B30AF006B32EE /* MockReleaseAPI.swift in Sources */,
+				4D0CFBB22B4B30CC006B32EE /* ReleaseAPITests.swift in Sources */,
+				4D0CFBA82B4B307A006B32EE /* ReleaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
