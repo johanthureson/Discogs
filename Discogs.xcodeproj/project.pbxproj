@@ -12,7 +12,6 @@
 		4D4FFEA32B4B23C60091F6AF /* ReleaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */; };
 		4D4FFEA62B4B24090091F6AF /* ReleaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA52B4B24090091F6AF /* ReleaseDB.swift */; };
 		4D4FFEA82B4B241D0091F6AF /* ReleasesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA72B4B241D0091F6AF /* ReleasesModel.swift */; };
-		4D4FFEAC2B4B298C0091F6AF /* Evaluate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEAB2B4B298C0091F6AF /* Evaluate.swift */; };
 		4DAAF5C22B49649B002E45BB /* DiscogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */; };
 		4DAAF5C42B49649B002E45BB /* ReleaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */; };
 		4DAAF5C62B49649C002E45BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C52B49649C002E45BB /* Assets.xcassets */; };
@@ -49,7 +48,6 @@
 		4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseRepository.swift; sourceTree = "<group>"; };
 		4D4FFEA52B4B24090091F6AF /* ReleaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDB.swift; sourceTree = "<group>"; };
 		4D4FFEA72B4B241D0091F6AF /* ReleasesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesModel.swift; sourceTree = "<group>"; };
-		4D4FFEAB2B4B298C0091F6AF /* Evaluate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate.swift; sourceTree = "<group>"; };
 		4DAAF5BE2B49649B002E45BB /* Discogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsApp.swift; sourceTree = "<group>"; };
 		4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseListView.swift; sourceTree = "<group>"; };
@@ -129,14 +127,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4D4FFEAA2B4B29570091F6AF /* TestUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				4D4FFEAB2B4B298C0091F6AF /* Evaluate.swift */,
-			);
-			path = TestUtilities;
-			sourceTree = "<group>";
-		};
 		4DAAF5B52B49649B002E45BB = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +171,6 @@
 		4DAAF5D12B49649C002E45BB /* DiscogsTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D4FFEAA2B4B29570091F6AF /* TestUtilities */,
 			);
 			path = DiscogsTests;
 			sourceTree = "<group>";
@@ -268,7 +257,6 @@
 					};
 					4DAAF5CD2B49649C002E45BB = {
 						CreatedOnToolsVersion = 15.1;
-						LastSwiftMigration = 1510;
 						TestTargetID = 4DAAF5BD2B49649B002E45BB;
 					};
 					4DAAF5D72B49649C002E45BB = {
@@ -349,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D4FFEAC2B4B298C0091F6AF /* Evaluate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +545,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8NX76ELDN;
@@ -568,7 +554,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nu.sing2.DiscogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Discogs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Discogs";
@@ -580,7 +565,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8NX76ELDN;
