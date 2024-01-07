@@ -21,7 +21,6 @@ final class ReleaseListViewModel {
     
     init(repository: ReleaseRepository = ReleaseRepositoryImpl()) {
         self.repository = repository
-        
         Task {
             await setupReleaseSequence()
         }
