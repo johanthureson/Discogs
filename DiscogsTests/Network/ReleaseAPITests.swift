@@ -43,9 +43,9 @@ final class ReleaseAPITests: XCTestCase {
     func test_getReleases_returnsRelease() async {
         // Given
         let expectedDiscogsContent = DiscogsContent(releases: [Releases.sample()])
-        // When
         let discogsContentData = try? JSONEncoder().encode(expectedDiscogsContent)
         mockURLSession.stubDataResponse = .success((discogsContentData ?? Data(), URLResponse()))
+        // When
         let resultReleases = try? await sut.getReleases()
         // Then
         XCTAssertEqual(resultReleases!.first, expectedDiscogsContent.releases?.first)
@@ -54,9 +54,9 @@ final class ReleaseAPITests: XCTestCase {
     func test_getReleases_returnsEmptyArray() async {
         // Given
         let expectedDiscogsContentWithEmptyReleaseArray = DiscogsContent(releases: [Releases]())
-        // When
         let emptyData = try? JSONEncoder().encode(expectedDiscogsContentWithEmptyReleaseArray)
         mockURLSession.stubDataResponse = .success((emptyData ?? Data(), URLResponse()))
+        // When
         let resultReleases = try? await sut.getReleases()
         // Then
         XCTAssertEqual(resultReleases, expectedDiscogsContentWithEmptyReleaseArray.releases)
