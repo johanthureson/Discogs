@@ -14,9 +14,10 @@ final class ReleaseTests: XCTestCase {
     
     func test_decodeJSON_parsesInformation() {
         // Given
-        // When
         guard let jsonData = getReleaseJSON().data(using: .utf8),
+              // When
               let release = try? (decoder.decode(DiscogsContent.self, from: jsonData).releases ?? [Releases]()).first else {
+            // Then
             XCTFail("Failed to decode test data")
             return
         }
