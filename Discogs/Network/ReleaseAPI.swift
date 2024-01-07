@@ -67,7 +67,6 @@ public final class ReleaseAPIImpl: ReleaseAPI {
                     where error.domain == NSURLErrorDomain
                     && error.code == NSURLErrorNotConnectedToInternet {
             throw ReleaseAPIError.offline
-            
         } catch {
             throw error
         }
