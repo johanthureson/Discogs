@@ -16,6 +16,9 @@
 		4DAAF5C42B49649B002E45BB /* ReleaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */; };
 		4DAAF5C62B49649C002E45BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C52B49649C002E45BB /* Assets.xcassets */; };
 		4DAAF5C92B49649C002E45BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C82B49649C002E45BB /* Preview Assets.xcassets */; };
+		4DAAF5D32B49649C002E45BB /* DiscogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5D22B49649C002E45BB /* DiscogsTests.swift */; };
+		4DAAF5DD2B49649C002E45BB /* DiscogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5DC2B49649C002E45BB /* DiscogsUITests.swift */; };
+		4DAAF5DF2B49649C002E45BB /* DiscogsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5DE2B49649C002E45BB /* DiscogsUITestsLaunchTests.swift */; };
 		4DAAF5F32B496779002E45BB /* Releases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5ED2B496779002E45BB /* Releases.swift */; };
 		4DAAF5F42B496779002E45BB /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5EE2B496779002E45BB /* Stats.swift */; };
 		4DAAF5F62B496779002E45BB /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5F02B496779002E45BB /* Community.swift */; };
@@ -54,7 +57,10 @@
 		4DAAF5C52B49649C002E45BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DAAF5C82B49649C002E45BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DAAF5CE2B49649C002E45BB /* DiscogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAAF5D22B49649C002E45BB /* DiscogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsTests.swift; sourceTree = "<group>"; };
 		4DAAF5D82B49649C002E45BB /* DiscogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAAF5DC2B49649C002E45BB /* DiscogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsUITests.swift; sourceTree = "<group>"; };
+		4DAAF5DE2B49649C002E45BB /* DiscogsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4DAAF5ED2B496779002E45BB /* Releases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Releases.swift; sourceTree = "<group>"; };
 		4DAAF5EE2B496779002E45BB /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		4DAAF5F02B496779002E45BB /* Community.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			children = (
 				4DAAF5C02B49649B002E45BB /* Discogs */,
 				4DAAF5D12B49649C002E45BB /* DiscogsTests */,
+				4DAAF5DB2B49649C002E45BB /* DiscogsUITests */,
 				4DAAF5BF2B49649B002E45BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,8 +178,18 @@
 		4DAAF5D12B49649C002E45BB /* DiscogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				4DAAF5D22B49649C002E45BB /* DiscogsTests.swift */,
 			);
 			path = DiscogsTests;
+			sourceTree = "<group>";
+		};
+		4DAAF5DB2B49649C002E45BB /* DiscogsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4DAAF5DC2B49649C002E45BB /* DiscogsUITests.swift */,
+				4DAAF5DE2B49649C002E45BB /* DiscogsUITestsLaunchTests.swift */,
+			);
+			path = DiscogsUITests;
 			sourceTree = "<group>";
 		};
 		4DAAF5EB2B496769002E45BB /* CodableModels */ = {
@@ -337,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DAAF5D32B49649C002E45BB /* DiscogsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DAAF5DD2B49649C002E45BB /* DiscogsUITests.swift in Sources */,
+				4DAAF5DF2B49649C002E45BB /* DiscogsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
