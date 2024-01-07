@@ -115,6 +115,18 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		4D4FFEA92B4B260A0091F6AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */,
+				4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */,
+				4DEDEEAD2B4AAEC40003AC00 /* ReleaseListViewModel.swift */,
+				4DAAF5FA2B49C12B002E45BB /* ReleaseCellView.swift */,
+				4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4DAAF5B52B49649B002E45BB = {
 			isa = PBXGroup;
 			children = (
@@ -137,11 +149,7 @@
 		4DAAF5C02B49649B002E45BB /* Discogs */ = {
 			isa = PBXGroup;
 			children = (
-				4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */,
-				4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */,
-				4DEDEEAD2B4AAEC40003AC00 /* ReleaseListViewModel.swift */,
-				4DAAF5FA2B49C12B002E45BB /* ReleaseCellView.swift */,
-				4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */,
+				4D4FFEA92B4B260A0091F6AF /* Views */,
 				4D4FFEA12B4B23AD0091F6AF /* Repository */,
 				4D4FFE9C2B4B21260091F6AF /* Network */,
 				4D4FFEA42B4B23ED0091F6AF /* Database */,
