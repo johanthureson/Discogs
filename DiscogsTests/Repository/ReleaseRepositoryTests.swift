@@ -10,7 +10,7 @@ import XCTest
 @testable import Discogs
 
 final class ReleaseRepositoryTests: XCTestCase {
-
+    
     var sut: ReleaseRepository!
     var mockReleaseAPI: MockReleaseAPI!
     var mockReleaseDB: MockReleaseDB!
@@ -39,37 +39,41 @@ final class ReleaseRepositoryTests: XCTestCase {
     // MARK: - DataAccessStrategy.upToDateWithFallback
     
     func test_loadReleases_upToDateWithFallback_callsAPI() async {
+        // Given
         mockReleaseAPI.stubGetReleasesResponse = .success([])
         mockReleaseDB.stubSaveReleasesResponse = .success(())
+        // When
         await sut.loadReleases()
+        // Then
         XCTAssertEqual(mockReleaseAPI.getReleasesCallCount, 1)
         XCTAssertEqual(mockReleaseDB.saveReleasesCallCount, 1)
     }
     
     func test_loadReleases_success_sendsReleasesToPublisher() async {
-
+        // Given
         let expectedReleases = [Releases.sample()]
+        // When
         mockReleaseAPI.stubGetReleasesResponse = .success(expectedReleases)
         mockReleaseDB.stubSaveReleasesResponse = .success(())
-
+        // Then
         if case .success(let releases) = await getLoadReleasesTestResult() {
             XCTAssertEqual(releases, expectedReleases)
-
         } else {
             XCTFail(#function)
         }
     }
     
     func test_loadReleases_failure_sendsErrorToPublisher() async {
-
+        // Given
         let testError = TestRepositoryError.testError
+        // When
         mockReleaseAPI.stubGetReleasesResponse = .failure(testError)
         mockReleaseDB.stubGetReleasesResponse = .failure(testError)
-
         if case .failure(let error) = await getLoadReleasesTestResult() {
+            // Then
             XCTAssertEqual(error as? TestRepositoryError, testError)
-
         } else {
+            // Then
             XCTFail(#function)
         }
     }

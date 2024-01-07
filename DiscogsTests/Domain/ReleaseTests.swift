@@ -13,13 +13,14 @@ final class ReleaseTests: XCTestCase {
     let decoder = JSONDecoder()
     
     func test_decodeJSON_parsesInformation() {
-        
+        // Given
+        // When
         guard let jsonData = getReleaseJSON().data(using: .utf8),
               let release = try? (decoder.decode(DiscogsContent.self, from: jsonData).releases ?? [Releases]()).first else {
             XCTFail("Failed to decode test data")
             return
         }
-        
+        // Then
         XCTAssertEqual(release.id, 827783)
         XCTAssertEqual(release.artist, "The Persuader")
         XCTAssertEqual(release.title, "Skargard")
@@ -28,38 +29,47 @@ final class ReleaseTests: XCTestCase {
     
     
     func test_decodeJSON_withInvalidDataFormat_throwsError() {
-        
         do {
+            // Given
             let invalidData = "[{\"fake-data\"}]".data(using: .utf8)
+            // When
             _ = try decoder.decode(DiscogsContent.self, from: invalidData!)
+            // Then
             XCTFail("Expected to fail")
             
         } catch {
+            // Then
             XCTAssertEqual(error.localizedDescription,
                            "The data couldn’t be read because it isn’t in the correct format.")
         }
     }
     
     func test_equality_checksForMatchingID() {
+        // Given
+        // When
         let releaseA = createRelease(id: 0, title: "Release A")
         let releaseB = createRelease(id: 1, title: "Release B")
         let releaseC = createRelease(id: 1, title: "Release C")
-        
+        // Then
         XCTAssertTrue(releaseA != releaseB)
         XCTAssertTrue(releaseA != releaseC)
         XCTAssertTrue(releaseB == releaseC)
     }
     
     func test_optionalValues() {
+        // Given
+        // When
         let release = createRelease(id: 0, title: "Release A", resource_url: nil, role: nil)
-
+        // Then
         XCTAssertNil(release.resource_url)
         XCTAssertNil(release.role)
     }
-
+    
     func test_sample_createsSampleRelease() {
+        // Given
+        // When
         let release = Releases.sample()
-        
+        // Then
         XCTAssertEqual(release.id, 999)
         XCTAssertEqual(release.artist, "Depeche Mode")
         XCTAssertEqual(release.title, "Speak & Spell")
@@ -79,7 +89,7 @@ final class ReleaseTests: XCTestCase {
                  year: 1981,
                  thumb: ""
         )
-
+        
     }
     
     private func getReleaseJSON() -> String {

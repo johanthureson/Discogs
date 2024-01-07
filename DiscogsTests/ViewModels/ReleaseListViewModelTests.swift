@@ -37,56 +37,74 @@ final class ReleaseListViewModelTests: XCTestCase {
     // MARK: - Test functions -
     
     func test_initialState() {
+        // Given
+        // When
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
+        // Then
         XCTAssertTrue(sut.releases.isEmpty)
         XCTAssertFalse(sut.showAlert)
         XCTAssertNil(sut.errorMessage)
     }
     
     func test_loadReleases_callsLoadOnRepository() async {
+        // Given
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
         mockReleaseRepository.stubLoadReleasesResponse = .success([])
+        // When
         await sut.loadReleases()
+        // Then
         XCTAssertEqual(mockReleaseRepository.loadReleasesCallCount, 1)
     }
     
     func test_listenerSentReleasesSuccessfully_setsReleases() {
+        // Given
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
         let sampleReleases = [Releases.sample()]
+        // When
         mockReleaseRepository.releasesPublisher.send(.success(sampleReleases))
         waitForChanges(to: \.releases, on: sut)
+        // Then
         XCTAssertEqual(sampleReleases, sut.releases)
     }
     
     func test_listenerSentOfflineError_setsErrorMessageAndTogglesAlert() {
+        // Given
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
         let testError = ReleaseAPIError.offline
+        // When
         mockReleaseRepository.releasesPublisher.send(.failure(testError))
         waitForChanges(to: \.showAlert, on: sut)
+        // Then
         XCTAssertEqual(sut.errorMessage, ReleaseAPIError.offline.errorDescription)
         XCTAssertTrue(sut.showAlert)
     }
     
     func test_listenerSentURLError_setsErrorMessageAndTogglesAlert() {
+        // Given
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
         let testError = ReleaseAPIError.couldNotConstructURL
+        // When
         mockReleaseRepository.releasesPublisher.send(.failure(testError))
         waitForChanges(to: \.showAlert, on: sut)
+        // Then
         XCTAssertEqual(sut.errorMessage, ReleaseAPIError.couldNotConstructURL.errorDescription)
         XCTAssertTrue(sut.showAlert)
     }
     
     func test_listenerSentError_setsErrorMessageAndTogglesAlert() {
+        // Given
         sut = ReleaseListViewModel(repository: mockReleaseRepository)
         let testError = TestViewModelError.testError
+        // When
         mockReleaseRepository.releasesPublisher.send(.failure(testError))
         waitForChanges(to: \.showAlert, on: sut)
+        // Then
         XCTAssertEqual(sut.errorMessage, testError.localizedDescription)
         XCTAssertTrue(sut.showAlert)
     }
     
     // MARK: - Helper function -
-
+    
     /// Waits for changes to a property at a given key path of an `@Observable` entity.
     ///
     /// Uses the Observation framework's global `withObservationTracking` function to track changes to a specific property.
@@ -106,6 +124,6 @@ final class ReleaseListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: timeout)
     }
-
+    
 }
 
