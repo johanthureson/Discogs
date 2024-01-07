@@ -21,8 +21,8 @@ struct ReleaseDetailView: View {
             label
             role
             year
-            Spacer()
         }
+        .navigationTitle(release.title ?? "")
     }
     
     @ViewBuilder
@@ -100,6 +100,5 @@ struct ReleaseDetailView: View {
             }
         }
     }
-    
     
 }

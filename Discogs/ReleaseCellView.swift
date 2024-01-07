@@ -24,19 +24,12 @@ struct ReleaseCellView: View {
             Text(artistName)
         }
     }
-
+    
     @ViewBuilder
     private var title: some View {
         if let titleName = release.title {
             Text(titleName)
         }
     }
-
+    
 }
-
-/*
-#Preview {
-    ReleaseCellView()
-}
-*/
-

@@ -10,22 +10,51 @@ import SwiftUI
 @Observable
 final class ReleaseListViewModel {
     
-    private (set) var title = "Discogs Releases"
+    private(set) var title = "Discogs Releases"
+    private(set) var releases: [Releases] = []
+    private(set) var isLoading: Bool = false
+    var showAlert: Bool = false
     
-    private (set) var releases: [Releases]?
-
-    init(releases: [Releases]? = nil) {
-        self.releases = releases
+    private(set) var errorMessage: String?
+    
+    private let repository: ReleaseRepository
+    
+    init(repository: ReleaseRepository = ReleaseRepositoryImpl()) {
+        self.repository = repository
+        
+        Task {
+            await setupReleaseSequence()
+        }
     }
     
-    func loadDiscogs() async throws {
-        guard let url = URL(string: "https://api.discogs.com/artists/1/releases?page=1&per_page=75") else {
-            return
+    func loadReleases() async {
+        await repository.loadReleases()
+    }
+    
+    private func setupReleaseSequence() async {
+        for await loadingState in repository.releasesPublisher.values {
+            await handleRelease(loadingState: loadingState)
         }
-        let request = URLRequest(url: url)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let discogsContent = try JSONDecoder().decode(DiscogsContent.self, from: data)
-        releases = discogsContent.releases
+    }
+    
+    @MainActor
+    private func handleRelease(loadingState: LoadingState<[Releases]>) {
+        switch loadingState {
+            
+        case .idle:
+            isLoading = false
+            
+        case .loading:
+            isLoading = true
+            
+        case .success(let releases):
+            isLoading = false
+            self.releases = releases
+            
+        case .failure(let error):
+            isLoading = false
+            showAlert.toggle()
+            errorMessage = error.localizedDescription
+        }
     }
 }
-
