@@ -35,10 +35,8 @@ struct ReleaseListView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                releaseListSubView
-            }
-            .navigationTitle(viewModel.title)
+            releaseListSubView
+                .navigationTitle(viewModel.title)
         }
         .padding()
         .task {
@@ -51,11 +49,13 @@ struct ReleaseListView: View {
     }
     
     private var releaseListSubView: some View {
-        ForEach(viewModel.releases ?? []) { release in
-            NavigationLink {
-                ReleaseDetailView(release: release)
-            } label: {
-                ReleaseCellView(release: release)
+        List {
+            ForEach(viewModel.releases ?? []) { release in
+                NavigationLink {
+                    ReleaseDetailView(release: release)
+                } label: {
+                    ReleaseCellView(release: release)
+                }
             }
         }
     }
