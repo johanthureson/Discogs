@@ -108,12 +108,12 @@
 		4DAAF5C02B49649B002E45BB /* Discogs */ = {
 			isa = PBXGroup;
 			children = (
-				4DAAF5EB2B496769002E45BB /* CodableModels */,
 				4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */,
 				4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */,
 				4DEDEEAD2B4AAEC40003AC00 /* ReleaseListViewModel.swift */,
 				4DAAF5FA2B49C12B002E45BB /* ReleaseCellView.swift */,
 				4DAAF5F82B49BC1F002E45BB /* ReleaseDetailView.swift */,
+				4DAAF5EB2B496769002E45BB /* CodableModels */,
 				4DAAF5C52B49649C002E45BB /* Assets.xcassets */,
 				4DAAF5C72B49649C002E45BB /* Preview Content */,
 			);
