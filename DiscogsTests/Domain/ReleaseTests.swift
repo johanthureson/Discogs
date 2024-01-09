@@ -76,6 +76,8 @@ final class ReleaseTests: XCTestCase {
         XCTAssertEqual(release.year, 1981)
     }
 
+    // MARK: - Testing Helpers
+
     private func createRelease(id: Int, title: String, resource_url: String? = "", role: String? = "") -> Releases {
         Releases(id: id,
                  status: "",

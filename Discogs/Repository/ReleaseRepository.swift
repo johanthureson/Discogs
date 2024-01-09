@@ -58,20 +58,4 @@ public final class ReleaseRepositoryImpl: ReleaseRepository {
         }
     }
 
-    // MARK: - Testing Helpers
-
-    private func createRelease(id: Int? = 999, artist: String? = "Depeche Mode", title: String? = "Speak & Spell") -> Releases {
-        Releases(id: id,
-                 status: "",
-                 type: "Record",
-                 format: "LP",
-                 label: "Mute",
-                 title: title,
-                 resource_url: "",
-                 role: "",
-                 artist: artist,
-                 year: 1981,
-                 thumb: ""
-        )
-    }
 }
