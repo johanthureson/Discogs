@@ -86,6 +86,13 @@ final class ReleaseRepositoryTests: XCTestCase {
 
         let exp = expectation(description: #function)
         cancel = sut.releasesPublisher
+        /*
+         When the Repository is set up, the publisher starts in the .idle state.
+         When loadReleases() is called, the publisher immediately broadcasts the .loading state.
+         After fetching data from the API, the publisher lands on the .success state with the beer values we care about.
+         Therefore the two first needs to be dropped (.dropFirst(2)), otherwise we will get the error:
+         "API violation - multiple calls made to -[XCTestExpectation fulfill] for getLoadReleasesTestResult()"
+         */
             .dropFirst(2)
             .sink(receiveValue: {
                 testResult = $0

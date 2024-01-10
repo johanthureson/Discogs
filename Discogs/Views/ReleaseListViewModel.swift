@@ -31,6 +31,8 @@ final class ReleaseListViewModel {
     }
 
     private func setupReleaseSequence() async {
+        // An AsyncSequence resembles the Sequence type — offering a list of values you can step through one at a time — and adds asynchronicity
+        // So this for loop goes through the loadingState, going to the next loop, when the next stage in the loadingState happens
         for await loadingState in repository.releasesPublisher.values {
             await handleRelease(loadingState: loadingState)
         }

@@ -16,6 +16,7 @@ public enum LoadingState<T> {
 }
 
 public protocol ReleaseRepository {
+    // Unlike PassthroughSubject, CurrentValueSubject maintains a buffer of the most recently published element.
     var releasesPublisher: CurrentValueSubject<LoadingState<[Releases]>, Never> { get }
     func loadReleases() async
 }
