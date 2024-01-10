@@ -48,7 +48,7 @@ final class ReleaseAPITests: XCTestCase {
         // When
         let resultReleases = try? await sut.getReleases()
         // Then
-        XCTAssertEqual(resultReleases!.first, expectedDiscogsContent.releases?.first)
+        XCTAssertEqual(resultReleases!, expectedDiscogsContent.releases)
     }
 
     func test_getReleases_returnsEmptyArray() async {
