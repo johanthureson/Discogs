@@ -10,7 +10,7 @@ import Foundation
 
 public final class MockReleaseAPI: ReleaseAPI {
 
-    public init() { }
+    init() { }
 
     var stubGetReleasesResponse: Result<[Releases], Error>?
     private(set) var getReleasesCallCount = 0

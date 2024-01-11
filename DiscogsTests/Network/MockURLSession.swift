@@ -10,7 +10,7 @@ import Foundation
 
 public final class MockURLSession: URLSessionProtocol {
 
-    public init() { }
+    init() { }
 
     var stubDataResponse: Result<(Data, URLResponse), Error>?
     var capturedURL: URL?
