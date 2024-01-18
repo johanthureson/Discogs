@@ -25,6 +25,7 @@
 		4D4FFEA32B4B23C60091F6AF /* ReleaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */; };
 		4D4FFEA62B4B24090091F6AF /* ReleaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA52B4B24090091F6AF /* ReleaseDB.swift */; };
 		4D4FFEA82B4B241D0091F6AF /* ReleasesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FFEA72B4B241D0091F6AF /* ReleasesModel.swift */; };
+		4D9157212B597DFF0020BFE3 /* ReleaseDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9157202B597DFF0020BFE3 /* ReleaseDetailsAPI.swift */; };
 		4DAAF5C22B49649B002E45BB /* DiscogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */; };
 		4DAAF5C42B49649B002E45BB /* ReleaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */; };
 		4DAAF5C62B49649C002E45BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DAAF5C52B49649C002E45BB /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		4D4FFEA22B4B23C60091F6AF /* ReleaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseRepository.swift; sourceTree = "<group>"; };
 		4D4FFEA52B4B24090091F6AF /* ReleaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDB.swift; sourceTree = "<group>"; };
 		4D4FFEA72B4B241D0091F6AF /* ReleasesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesModel.swift; sourceTree = "<group>"; };
+		4D9157202B597DFF0020BFE3 /* ReleaseDetailsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDetailsAPI.swift; sourceTree = "<group>"; };
 		4DAAF5BE2B49649B002E45BB /* Discogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAAF5C12B49649B002E45BB /* DiscogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsApp.swift; sourceTree = "<group>"; };
 		4DAAF5C32B49649B002E45BB /* ReleaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseListView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4FFE9D2B4B21330091F6AF /* ReleaseAPI.swift */,
+				4D9157202B597DFF0020BFE3 /* ReleaseDetailsAPI.swift */,
 				4D4FFE9F2B4B21510091F6AF /* URLSessionProtocol.swift */,
 			);
 			path = Network;
@@ -378,6 +381,7 @@
 				4D26794A2B592E16004E62D2 /* Images.swift in Sources */,
 				4DAAF5FB2B49C12B002E45BB /* ReleaseCellView.swift in Sources */,
 				4D4FFEA32B4B23C60091F6AF /* ReleaseRepository.swift in Sources */,
+				4D9157212B597DFF0020BFE3 /* ReleaseDetailsAPI.swift in Sources */,
 				4DEDEEAE2B4AAEC40003AC00 /* ReleaseListViewModel.swift in Sources */,
 				4D2679492B592E16004E62D2 /* Labels.swift in Sources */,
 				4D4FFEA62B4B24090091F6AF /* ReleaseDB.swift in Sources */,
