@@ -1,6 +1,6 @@
 import Foundation
 
-struct Images: Codable, Equatable, Hashable {    
+public struct Images: Codable, Equatable, Hashable {    
     
     public let type : String?
     public let uri : String?

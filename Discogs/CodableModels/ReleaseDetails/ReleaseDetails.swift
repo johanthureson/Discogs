@@ -1,6 +1,6 @@
 import Foundation
 
-struct ReleaseDetails: Codable, Equatable, Identifiable, Hashable {
+public struct ReleaseDetails: Codable, Equatable, Identifiable, Hashable {
     
     public let id : Int?
     public let year : Int?

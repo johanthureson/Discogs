@@ -1,6 +1,6 @@
 import Foundation
 
-struct Labels: Codable, Equatable, Identifiable, Hashable {
+public struct Labels: Codable, Equatable, Identifiable, Hashable {
     
     public let name : String?
     public let catno : String?

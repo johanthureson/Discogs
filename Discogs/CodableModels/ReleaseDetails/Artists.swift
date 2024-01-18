@@ -1,6 +1,6 @@
 import Foundation
 
-struct Artists: Codable, Equatable, Identifiable, Hashable {
+public struct Artists: Codable, Equatable, Identifiable, Hashable {
     
     public let name : String?
     public let anv : String?
