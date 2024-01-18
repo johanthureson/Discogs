@@ -26,7 +26,7 @@ struct ReleaseListView: View {
         List {
             ForEach(viewModel.releases) { release in
                 NavigationLink {
-                    ReleaseDetailView(release: release)
+                    ReleaseDetailsView(release: release)
                 } label: {
                     ReleaseCellView(release: release)
                 }

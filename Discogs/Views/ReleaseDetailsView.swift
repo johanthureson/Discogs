@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReleaseDetailView: View {
+struct ReleaseDetailsView: View {
 
     let release: Releases
 
