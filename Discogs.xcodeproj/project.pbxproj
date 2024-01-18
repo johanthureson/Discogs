@@ -217,13 +217,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4D9157242B59CC780020BFE3 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		4DAAF5B52B49649B002E45BB = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +240,6 @@
 			children = (
 				4D4FFEA92B4B260A0091F6AF /* Views */,
 				4D4FFEA12B4B23AD0091F6AF /* Repository */,
-				4D9157242B59CC780020BFE3 /* Utilities */,
 				4D4FFE9C2B4B21260091F6AF /* Network */,
 				4D4FFEA42B4B23ED0091F6AF /* Database */,
 				4DAAF5EB2B496769002E45BB /* CodableModels */,
