@@ -61,7 +61,7 @@ public struct Releases: Codable, Equatable, Identifiable, Hashable {
     public static func sample(id: Int = 999, artist: String = "Speak & Spell") -> Releases {
         Releases(id: id,
                  status: "",
-                 type: "Record",
+                 type: "release",
                  format: "LP",
                  label: "Mute",
                  title: "Speak & Spell",

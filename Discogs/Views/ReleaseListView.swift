@@ -26,7 +26,9 @@ struct ReleaseListView: View {
         List {
             ForEach(viewModel.releases) { release in
                 NavigationLink {
-                    ReleaseDetailsView(release: release)
+                    if let releaseId = release.id {
+                        ReleaseDetailsView(id: releaseId)
+                    }
                 } label: {
                     ReleaseCellView(release: release)
                 }

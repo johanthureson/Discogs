@@ -9,35 +9,36 @@ import SwiftUI
 
 struct ReleaseDetailsView: View {
 
-    let release: Releases
+    let id: Int
+    @State private var viewModel = ReleaseDetailsViewModel()
 
     var body: some View {
         List {
-            artist
+            artists
             title
-            status
-            type
-            format
-            label
-            role
             year
+            genres
         }
-        .navigationTitle(release.title ?? "")
+        .overlay(loadingIndicator)
+        .navigationTitle(viewModel.title)
+        .toolbar(.automatic, for: .navigationBar)
+        .alert(isPresented: $viewModel.showAlert) { errorAlert }
+        .task { await viewModel.loadReleaseDetails(id: id) }
     }
 
     @ViewBuilder
-    private var artist: some View {
-        if let artistName = release.artist {
+    private var artists: some View {
+        if let artists = viewModel.releaseDetails?.artists {
             HStack {
-                Text("Artist: ")
-                Text(artistName)
+                Text("Artists: ")
+                Text(artistsString(artists: artists))
             }
         }
     }
 
     @ViewBuilder
     private var title: some View {
-        if let titleName = release.title {
+        if let titleName = viewModel.releaseDetails?.title {
             HStack {
                 Text("Title: ")
                 Text(titleName)
@@ -46,59 +47,64 @@ struct ReleaseDetailsView: View {
     }
 
     @ViewBuilder
-    private var status: some View {
-        if let statusString = release.status {
-            HStack {
-                Text("Status: ")
-                Text(statusString)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var type: some View {
-        if let typeString = release.type {
-            HStack {
-                Text("Type: ")
-                Text(typeString)
-            }
-        }
-    }
-    @ViewBuilder
-    private var format: some View {
-        if let formatString = release.format {
-            HStack {
-                Text("Format: ")
-                Text(formatString)
-            }
-        }
-    }
-    @ViewBuilder
-    private var label: some View {
-        if let labelString = release.label {
-            HStack {
-                Text("Label: ")
-                Text(labelString)
-            }
-        }
-    }
-    @ViewBuilder
-    private var role: some View {
-        if let roleString = release.role {
-            HStack {
-                Text("Role: ")
-                Text(roleString)
-            }
-        }
-    }
-    @ViewBuilder
     private var year: some View {
-        if let year = release.year {
+        if let year = viewModel.releaseDetails?.year {
             HStack {
                 Text("Year: ")
                 Text(String(year) )
             }
         }
+    }
+    
+    @ViewBuilder
+    private var genres: some View {
+        if let genres = viewModel.releaseDetails?.genres {
+            HStack {
+                Text("Genres: ")
+                Text(stringArrayToString(stringArray: genres))
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var loadingIndicator: some View {
+        if viewModel.isLoading {
+            ProgressView()
+        }
+    }
+
+    private var errorAlert: Alert {
+        Alert(
+            title: Text("Error"),
+            message: Text(viewModel.errorMessage ?? ""),
+            dismissButton: .default(Text("OK")) {
+                viewModel.showAlert.toggle()
+            }
+        )
+    }
+
+    private func artistsString(artists: [Artists]) -> String {
+        var artisstString = ""
+        for artist in artists {
+            if let artistName = artist.name {
+                artisstString.append(artistName + ", ")
+            }
+        }
+        if artisstString.count >= 2 {
+            artisstString = String(artisstString.dropLast(2))
+        }
+        return artisstString
+    }
+    
+    private func stringArrayToString(stringArray: [String]) -> String {
+        var stringArrayString = ""
+        for string in stringArray {
+            stringArrayString.append(string + ", ")
+        }
+        if stringArrayString.count >= 2 {
+            stringArrayString = String(stringArrayString.dropLast(2))
+        }
+        return stringArrayString
     }
 
 }

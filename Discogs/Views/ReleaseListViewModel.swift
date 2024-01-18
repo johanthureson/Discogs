@@ -50,7 +50,7 @@ final class ReleaseListViewModel {
 
         case .success(let releases):
             isLoading = false
-            self.releases = releases
+            self.releases = keepOnlyReleaseType(releases: releases)
 
         case .failure(let error):
             isLoading = false
@@ -58,4 +58,13 @@ final class ReleaseListViewModel {
             errorMessage = error.localizedDescription
         }
     }
+    
+    // The releases list is of mixed types (at least both type release and master)
+    // To keep the detail view simpler, only the release type was kept
+    private func keepOnlyReleaseType(releases: [Releases]) -> [Releases] {
+        return releases.filter { relese in
+            relese.type == "release"
+        }
+    }
+    
 }
