@@ -18,6 +18,7 @@ struct ReleaseDetailsView: View {
             title
             year
             genres
+            thumb
         }
         .overlay(loadingIndicator)
         .navigationTitle(viewModel.title)
@@ -66,6 +67,19 @@ struct ReleaseDetailsView: View {
         }
     }
     
+    @ViewBuilder
+    private var thumb: some View {
+        if let thumb = viewModel.releaseDetails?.thumb {
+            HStack {
+                Spacer()
+                RemoteImageView(url: thumb)
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .cornerRadius(10)
+                Spacer()
+            }
+        }
+    }
+
     @ViewBuilder
     private var loadingIndicator: some View {
         if viewModel.isLoading {
