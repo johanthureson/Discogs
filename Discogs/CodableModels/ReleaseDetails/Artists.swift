@@ -1,6 +1,6 @@
 import Foundation
 
-struct Artists : Codable {
+struct Artists: Codable, Equatable, Identifiable, Hashable {
     
     public let name : String?
     public let anv : String?
@@ -38,7 +38,7 @@ struct Artists : Codable {
         self.resource_url = resource_url
     }
     
-    public static func == (lhs: Releases, rhs: Releases) -> Bool {
+    public static func == (lhs: Artists, rhs: Artists) -> Bool {
         lhs.id == rhs.id
     }
     

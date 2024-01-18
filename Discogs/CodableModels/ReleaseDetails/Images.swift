@@ -1,6 +1,6 @@
 import Foundation
 
-struct Images : Codable {
+struct Images: Codable, Equatable, Hashable {    
     
     public let type : String?
     public let uri : String?
@@ -34,8 +34,8 @@ struct Images : Codable {
         self.height = height
     }
     
-    public static func == (lhs: Releases, rhs: Releases) -> Bool {
-        lhs.id == rhs.id
+    public static func == (lhs: Images, rhs: Images) -> Bool {
+        lhs.uri == rhs.uri
     }
     
 }

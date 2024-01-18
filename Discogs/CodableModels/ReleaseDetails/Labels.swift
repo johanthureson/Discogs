@@ -1,6 +1,6 @@
 import Foundation
 
-struct Labels : Codable {
+struct Labels: Codable, Equatable, Identifiable, Hashable {
     
     public let name : String?
     public let catno : String?
@@ -34,7 +34,7 @@ struct Labels : Codable {
         self.resource_url = resource_url
     }
     
-    public static func == (lhs: Releases, rhs: Releases) -> Bool {
+    public static func == (lhs: Labels, rhs: Labels) -> Bool {
         lhs.id == rhs.id
     }
     

@@ -1,6 +1,6 @@
 import Foundation
 
-struct ReleaseDetails : Codable {
+struct ReleaseDetails: Codable, Equatable, Identifiable, Hashable {
     
     public let id : Int?
     public let year : Int?
@@ -50,7 +50,7 @@ struct ReleaseDetails : Codable {
         self.thumb = thumb
     }
     
-    public static func == (lhs: Releases, rhs: Releases) -> Bool {
+    public static func == (lhs: ReleaseDetails, rhs: ReleaseDetails) -> Bool {
         lhs.id == rhs.id
     }
     
