@@ -11,16 +11,21 @@ import SwiftUI
 final class ReleaseListViewModel {
 
     private(set) var title = "Discogs Releases"
-    private(set) var releases: [Releases] = []
     private(set) var isLoading: Bool = false
     var showAlert: Bool = false
 
     private(set) var errorMessage: String?
 
+    private(set) var releases: [Releases] // = []
     private let repository: ReleaseRepository
 
-    init(repository: ReleaseRepository = ReleaseRepositoryImpl()) {
+    init(releases: [Releases] = [],
+         repository: ReleaseRepository = ReleaseRepositoryImpl()) {
+        self.releases = releases
         self.repository = repository
+        guard releases.count == 0 else {
+            return
+        }
         Task {
             await setupReleaseSequence()
         }

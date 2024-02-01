@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReleaseListView: View {
 
-    @State private var viewModel = ReleaseListViewModel()
+    @State var viewModel = ReleaseListViewModel()
 
     var body: some View {
         NavigationStack {
@@ -55,5 +55,5 @@ struct ReleaseListView: View {
 }
 
 #Preview {
-    ReleaseListView()
+    ReleaseListView(viewModel: ReleaseListViewModel(releases: DiscogsContent.exampleDiscogsContent!.releases!))
 }
