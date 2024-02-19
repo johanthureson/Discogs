@@ -26,7 +26,9 @@ struct ReleaseDetailsView: View {
         .toolbar(.automatic, for: .navigationBar)
         .alert(isPresented: $viewModel.showAlert) { errorAlert }
         .task { await viewModel.loadReleaseDetails(id: id) }
-        .accessibilityAction(.escape) {
+        .accessibilityAction(.magicTap) {
+            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+            impactMed.impactOccurred()
             self.presentationMode.wrappedValue.dismiss()
         }
     }
