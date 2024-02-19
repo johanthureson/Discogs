@@ -81,7 +81,8 @@ struct ReleaseDetailsView: View {
                 RemoteImageView(url: thumb)
                     .frame(width: 150, height: 150, alignment: .center)
                     .cornerRadius(10)
-                    .accessibilityLabel("Image of record")
+                    .accessibilityLabel("Image")
+                    .accessibilityHint("Image of record")
                 Spacer()
             }
         }
