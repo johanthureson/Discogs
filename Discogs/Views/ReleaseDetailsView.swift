@@ -43,10 +43,13 @@ struct ReleaseDetailsView: View {
                 }
                 Text("This Scales")
                     .font(.custom("Georgia", size: 24))
+                    .accessibility(sortPriority: 0)
 
                 Text("This is Fixed")
                     .font(.custom("Georgia", fixedSize: 24))
+                    .accessibility(sortPriority: 1)
             }
+            .accessibilityElement(children: .contain)
         }
     }
 
