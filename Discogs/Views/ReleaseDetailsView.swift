@@ -11,6 +11,7 @@ struct ReleaseDetailsView: View {
 
     let id: Int
     @State private var viewModel = ReleaseDetailsViewModel()
+    @State private var updateState = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -20,6 +21,7 @@ struct ReleaseDetailsView: View {
             year
             genres
             thumb
+            toggle
         }
         .overlay(loadingIndicator)
         .navigationTitle(viewModel.title)
@@ -98,6 +100,12 @@ struct ReleaseDetailsView: View {
         }
     }
 
+    private var toggle: some View {
+        Toggle(isOn: $updateState) {
+            Text("Send me updates")
+        }
+    }
+    
     @ViewBuilder
     private var loadingIndicator: some View {
         if viewModel.isLoading {
