@@ -31,6 +31,7 @@ struct ReleaseListView: View {
                     }
                 } label: {
                     ReleaseCellView(release: release)
+                        .accessibilityIdentifier("ReleaseCellView for UI Testing")
                 }
             }
         }
