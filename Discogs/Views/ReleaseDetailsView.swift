@@ -11,6 +11,7 @@ struct ReleaseDetailsView: View {
 
     let id: Int
     @State private var viewModel = ReleaseDetailsViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
         List {
@@ -25,6 +26,9 @@ struct ReleaseDetailsView: View {
         .toolbar(.automatic, for: .navigationBar)
         .alert(isPresented: $viewModel.showAlert) { errorAlert }
         .task { await viewModel.loadReleaseDetails(id: id) }
+        .accessibilityAction(.escape) {
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 
     @ViewBuilder
