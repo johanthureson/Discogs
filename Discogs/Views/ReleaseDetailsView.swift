@@ -38,7 +38,7 @@ struct ReleaseDetailsView: View {
     @ViewBuilder
     private var artists: some View {
         if let artists = viewModel.releaseDetails?.artists {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     Text("Artists: ")
                     Text(artistsString(artists: artists))
