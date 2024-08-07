@@ -26,37 +26,25 @@ public final class ReleaseRepositoryImpl: ReleaseRepository {
     public private(set) var releasesPublisher = CurrentValueSubject<LoadingState<[Releases]>, Never>(.idle)
 
     private let api: ReleaseAPI
-    private let db: ReleaseDB?
 
     public init(
-        api: ReleaseAPI = ReleaseAPIImpl(),
-        db: ReleaseDB? = try? ReleaseDBImpl()
+        api: ReleaseAPI = ReleaseAPIImpl()
     ) {
         self.api = api
-        self.db = db
     }
 
     public func loadReleases() async {
         releasesPublisher.send(.loading)
         do {
-            try await upToDateWithFallback()
+            try await upToDate()
         } catch {
             releasesPublisher.send(.failure(error))
         }
     }
 
-    private func upToDateWithFallback() async throws {
-        do {
-            let releases = try await api.getReleases()
-            try? await db?.save(releases: releases)
-            releasesPublisher.send(.success(releases))
-        } catch {
-            if let releases = try? await db?.getReleases() {
-                releasesPublisher.send(.success(releases))
-            } else {
-                throw error
-            }
-        }
+    private func upToDate() async throws {
+        let releases = try await api.getReleases()
+        releasesPublisher.send(.success(releases))
     }
 
 }

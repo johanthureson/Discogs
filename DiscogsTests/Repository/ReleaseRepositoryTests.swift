@@ -13,7 +13,6 @@ final class ReleaseRepositoryTests: XCTestCase {
 
     var sut: ReleaseRepository!
     var mockReleaseAPI: MockReleaseAPI!
-    var mockReleaseDB: MockReleaseDB!
     var cancel: AnyCancellable?
 
     private enum TestRepositoryError: Error, Equatable {
@@ -23,8 +22,7 @@ final class ReleaseRepositoryTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockReleaseAPI = MockReleaseAPI()
-        mockReleaseDB = MockReleaseDB()
-        sut = ReleaseRepositoryImpl(api: mockReleaseAPI, db: mockReleaseDB)
+        sut = ReleaseRepositoryImpl(api: mockReleaseAPI)
     }
 
     override func tearDown() {
@@ -32,28 +30,24 @@ final class ReleaseRepositoryTests: XCTestCase {
         cancel = nil
         sut = nil
         mockReleaseAPI = nil
-        mockReleaseDB = nil
         super.tearDown()
     }
 
     // MARK: - DataAccessStrategy.upToDateWithFallback
 
-    func test_loadReleases_upToDateWithFallback_callsAPI() async {
+    func test_loadReleases_upToDate_callsAPI() async {
         // Given
         mockReleaseAPI.stubGetReleasesResponse = .success([])
-        mockReleaseDB.stubSaveReleasesResponse = .success(())
         // When
         await sut.loadReleases()
         // Then
         XCTAssertEqual(mockReleaseAPI.getReleasesCallCount, 1)
-        XCTAssertEqual(mockReleaseDB.saveReleasesCallCount, 1)
     }
 
     func test_loadReleases_success_sendsReleasesToPublisher() async {
         // Given
         let expectedReleases = [Releases.sample()]
         mockReleaseAPI.stubGetReleasesResponse = .success(expectedReleases)
-        mockReleaseDB.stubSaveReleasesResponse = .success(())
         // When
         if case .success(let releases) = await getLoadReleasesTestResult() {
             // Then
@@ -68,7 +62,6 @@ final class ReleaseRepositoryTests: XCTestCase {
         // Given
         let testError = TestRepositoryError.testError
         mockReleaseAPI.stubGetReleasesResponse = .failure(testError)
-        mockReleaseDB.stubGetReleasesResponse = .failure(testError)
         // When
         if case .failure(let error) = await getLoadReleasesTestResult() {
             // Then
